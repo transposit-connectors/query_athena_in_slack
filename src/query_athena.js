@@ -1,4 +1,5 @@
 async (params) => {
+  stash.put("runFinished", false);
   let executionId = api.run("aws_athena.start_query_execution", {
       QueryString : params.query,
       ClientRequestToken: makeid(35),
@@ -6,16 +7,24 @@ async (params) => {
       ResultConfiguration: {OutputLocation: 's3://prod.events-logs.transposit.com/query-results'}
     })[0]['QueryExecutionId'];
   
+//   while (stast.get("runFinished") == false) {
+
+//   }
   await new Promise( resolve => {
       setTimeout(() => {
-          result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
+        try {
+          api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
+            console.log(e)
               return e.Data;
-          });
+          })} catch(e) {
+            //console.log(e.message)
+          };
         resolve();
-    }, 15000);
-  });
+    }, 5000);
+  	});
 
 
+return
   const cols = result[0];
   result = result.slice(1, result.length);
   return result.map(e => {
