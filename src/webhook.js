@@ -8,7 +8,7 @@ console.log(parsed_body)
     let user = api.user({type: "slack", workspaceId, userId});
     if (user) {
       let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
-      stash.put(response_url, 'undefined');
+      stash.put(response_url, 'hello');
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
         post_body: message
