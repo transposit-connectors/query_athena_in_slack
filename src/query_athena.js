@@ -38,7 +38,7 @@ async (params) => {
           }],
           // The text content gets displayed in the notification
           text: 'A message from Transposit!'
-        };
+        }
       }); 
   
   
