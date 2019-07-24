@@ -8,12 +8,11 @@
     let user = api.user({type: "slack", workspaceId, userId});
     if (user) {
       let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
-      console.log('response url = ' + response_url);
-      stash.put(response_url,"hello");
-      api.run("slack_webhook.post_to_response_url", {
-        response_url: response_url,
-        post_body: message
-      });      
+      // api.run("slack_webhook.post_to_response_url", {
+      //   response_url: response_url,
+      //   post_body: message
+      // });     
+      api.run('this.query_athena', {query: parsed_body.text, response_url: response_url});
     } else {
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
