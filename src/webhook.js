@@ -25,7 +25,7 @@
           .map(e => {
             return e.Data;
           });
-
+		const cols = result[0];
         result = result.slice(1, result.length);
         let formattedData = result.map(e => {
           return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
