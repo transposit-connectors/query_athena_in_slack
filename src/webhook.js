@@ -7,7 +7,7 @@
   setImmediate(() => {
     let user = api.user({type: "slack", workspaceId, userId});
     if (user) {
-      let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
+      //let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
       api.run('this.query_athena', {query: parsed_body.text, response_url: response_url}, {asUser: user.id});
     } else {
       api.run("slack_webhook.post_to_response_url", {
