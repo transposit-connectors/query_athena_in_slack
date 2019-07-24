@@ -1,4 +1,4 @@
-(params) => {
+async (params) => {
   
   let executionId = api.run("aws_athena.start_query_execution", {
       QueryString : params.query,
