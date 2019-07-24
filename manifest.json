@@ -33,9 +33,6 @@
           "parameters": [{
             "name": "user",
             "type": "STRING"
-          }, {
-            "name": "text",
-            "type": "STRING"
           }],
           "js": "get_slack_message.js"
         }
