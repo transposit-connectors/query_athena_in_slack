@@ -79,7 +79,8 @@
           }
         }
       }, {
-        "ref": "slack.raw"
+        "ref": "slack.raw",
+        "requireConsumerSignin": true
       }, {
         "ref": "aws_athena.raw.aws_basic",
         "requireConsumerSignin": true
