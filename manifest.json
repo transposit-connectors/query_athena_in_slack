@@ -86,8 +86,7 @@
         "requireConsumerSignin": true
       }],
       "javascriptAPIVersion": "3",
-      "source": "src",
-      "userSettingsDisplay": "GENERATED"
+      "source": "src"
     }
   }
 }
