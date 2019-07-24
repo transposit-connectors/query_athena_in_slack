@@ -4,6 +4,8 @@
   const userId = parsed_body.user_id;
   const response_url = parsed_body.response_url;
   console.log(parsed_body);
+  let result;
+  
   setImmediate(() => {
     let user = api.user({type: "slack", workspaceId, userId});
     if (user) {
