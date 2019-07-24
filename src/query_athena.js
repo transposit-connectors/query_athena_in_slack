@@ -26,7 +26,19 @@ async (params) => {
   let message = JSON.stringify(formattedData);
   return api.run("slack_webhook.post_to_response_url", {
         response_url: params.response_url,
-        post_body: message
+        post_body: {
+          // The blocks get displayed in the actual message. 
+          // You can play with block kit here: https://api.slack.com/tools/block-kit-builder
+          blocks: [{
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": message
+            }
+          }],
+          // The text content gets displayed in the notification
+          text: 'A message from Transposit!'
+        };
       }); 
   
   
