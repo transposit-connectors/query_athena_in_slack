@@ -1,4 +1,4 @@
-async (params) => {
+ (params) => {
   
   let executionId = api.run("aws_athena.start_query_execution", {
       QueryString : params.query,
@@ -7,6 +7,7 @@ async (params) => {
       ResultConfiguration: {OutputLocation: 's3://prod.events-logs.transposit.com/query-results'}
     })[0]['QueryExecutionId'];
 
+  return executionId;
   let result;
   
     await new Promise( resolve => {
