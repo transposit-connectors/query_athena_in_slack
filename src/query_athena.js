@@ -20,9 +20,14 @@ async (params) => {
 
   const cols = result[0];
   result = result.slice(1, result.length);
-  return result.map(e => {
+  let formattedData = result.map(e => {
       return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
   });
+  let message = JSON.stringify(formattedData);
+  return api.run("slack_webhook.post_to_response_url", {
+        response_url: params.response_url,
+        post_body: message
+      }); 
   
   
   function makeid(length) {

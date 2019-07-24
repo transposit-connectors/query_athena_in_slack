@@ -48,7 +48,7 @@
             "name": "query",
             "type": "STRING"
           }, {
-            "name": "responseUrl",
+            "name": "response_url",
             "type": "STRING"
           }],
           "js": "query_athena.js"
