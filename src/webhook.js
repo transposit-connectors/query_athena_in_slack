@@ -3,13 +3,11 @@
   const workspaceId = parsed_body.team_id;
   const userId = parsed_body.user_id;
   const response_url = parsed_body.response_url;
-  stash.put('a','b')
-console.log(parsed_body)
   setImmediate(() => {
     let user = api.user({type: "slack", workspaceId, userId});
     if (user) {
       let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
-      console.log('response url = ', response_url)
+      console.log('response url = ' + response_url);
       stash.put(response_url,"hello");
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
