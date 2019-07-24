@@ -12,7 +12,7 @@
       //   response_url: response_url,
       //   post_body: message
       // });     
-      api.run('this.query_athena', {query: parsed_body.text, response_url: response_url});
+      api.run('this.query_athena', {query: parsed_body.text, response_url: response_url}, {asUser: user.id});
     } else {
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
