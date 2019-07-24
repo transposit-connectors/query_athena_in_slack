@@ -8,9 +8,13 @@
     let user = api.user({type: "slack", workspaceId, userId});
     if (user) {
       //let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
-      api.run('this.query_athena', {query: parsed_body.text, response_url: response_url}, {asUser: user.id}).then((data) => {
-        console.log(data);
-      });
+      let executionId = api.run('this.query_athena', {query: parsed_body.text, response_url: response_url}, {asUser: user.id});
+      setTimeout(() => {
+         result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
+           	console.log(e);
+        	return e.Data;
+      	});
+      }, 5000);
     } else {
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
