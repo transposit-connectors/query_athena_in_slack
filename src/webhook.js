@@ -16,6 +16,7 @@
       )[0];
 
       setTimeout(() => {
+        try {
         result = api
           .run(
             "aws_athena.get_query_results",
@@ -25,6 +26,12 @@
           .map(e => {
             return e.Data;
           });
+        } catch(e) {
+         api.run("slack_webhook.post_to_response_url", {
+        	response_url: response_url,
+        	post_body: { text: e.toString() }
+      	 });
+        }
 		const cols = result[0];
         result = result.slice(1, result.length);
         let formattedData = result.map(e => {
