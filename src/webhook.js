@@ -13,9 +13,9 @@
       let executionId = api.run('this.query_athena', {query: parsed_body.text, response_url: response_url}, {asUser: user.id});
       setTimeout(() => {
          result = api.run("aws_athena.get_query_results", {QueryExecutionId: executionId}, {asUser: user.id}).map(e => {
-           	console.log(e);
         	return e.Data;
-      	});
+      	 });
+        console.log(result)
       }, 10000);
     } else {
       api.run("slack_webhook.post_to_response_url", {
