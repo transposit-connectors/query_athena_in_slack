@@ -16,7 +16,7 @@ async (params) => {
         		return e.Data;
       		});
         resolve();
-    }, 15000);
+    }, 5000);
   	});
 
   const cols = result[0];
