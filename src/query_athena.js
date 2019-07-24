@@ -12,6 +12,7 @@ async (params) => {
   await new Promise( resolve => {
       setTimeout(() => {
          result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
+           console.log(e);
         		return e.Data;
       		});
         resolve();
