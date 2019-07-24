@@ -36,7 +36,7 @@
         });
         api.run("slack_webhook.post_to_response_url", {
           response_url: response_url,
-          post_body: message
+          post_body: message[0]
         });
       }, 10000);
     } else {
