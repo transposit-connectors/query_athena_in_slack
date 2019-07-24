@@ -24,6 +24,7 @@ async (params) => {
       return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
   });
   let message = JSON.stringify(formattedData);
+  console.log(message);
   return api.run("slack_webhook.post_to_response_url", {
         response_url: params.response_url,
         post_body: {
