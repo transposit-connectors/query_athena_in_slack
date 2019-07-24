@@ -53,6 +53,15 @@
           }],
           "js": "query_athena.js"
         }
+      }, {
+        "id": "untitled",
+        "function": {
+          "parameters": [{
+            "name": "id",
+            "type": "STRING"
+          }],
+          "js": "untitled.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
