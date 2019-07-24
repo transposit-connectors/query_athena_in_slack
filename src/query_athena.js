@@ -7,24 +7,17 @@ async (params) => {
       ResultConfiguration: {OutputLocation: 's3://prod.events-logs.transposit.com/query-results'}
     })[0]['QueryExecutionId'];
   
-//   while (stast.get("runFinished") == false) {
 
-//   }
+  let result;
   await new Promise( resolve => {
       setTimeout(() => {
-        try {
-          api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
-            console.log(e)
-              return e.Data;
-          })} catch(e) {
-            //console.log(e.message)
-          };
+         result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
+        		return e.Data;
+      		});
         resolve();
-    }, 5000);
+    }, 10000);
   	});
 
-
-return
   const cols = result[0];
   result = result.slice(1, result.length);
   return result.map(e => {

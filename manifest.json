@@ -47,6 +47,9 @@
           "parameters": [{
             "name": "query",
             "type": "STRING"
+          }, {
+            "name": "responseUrl",
+            "type": "STRING"
           }],
           "js": "query_athena.js"
         }
