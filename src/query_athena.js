@@ -8,15 +8,15 @@
     })[0]['QueryExecutionId'];
 
   let result;
-  await new Promise( resolve => {
-      setTimeout(() => {
-         result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
-           console.log(e);
+  
+    await new Promise( resolve => {
+        setTimeout(() => {
+         	result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
         		return e.Data;
       		});
-        resolve();
-    }, 5000);
-  	});
+          resolve();
+      }, 15000);
+    })
 
   const cols = result[0];
   result = result.slice(1, result.length);
