@@ -31,7 +31,7 @@
         "id": "get_slack_message",
         "function": {
           "parameters": [{
-            "name": "user",
+            "name": "text",
             "type": "STRING"
           }],
           "js": "get_slack_message.js"

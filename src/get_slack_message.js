@@ -1,4 +1,4 @@
-({user}) => {
+(params) => {
   return {
     // The blocks get displayed in the actual message. 
     // You can play with block kit here: https://api.slack.com/tools/block-kit-builder
@@ -6,7 +6,7 @@
       "type": "section",
       "text": {
           "type": "mrkdwn",
-          "text":"Hello World"
+          "text": params.text
       }
     }],
     // The text content gets displayed in the notification
