@@ -10,7 +10,7 @@
       //let message = api.run('this.get_slack_message', {}, {asUser: user.id})[0];
       let executionId = api.run('this.query_athena', {query: parsed_body.text, response_url: response_url}, {asUser: user.id});
       setTimeout(() => {
-         result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }, {asUser: user.id}).map(e => {
+         result = api.run("aws_athena.get_query_results", {QueryExecutionId: executionId}, {asUser: user.id}).map(e => {
            	console.log(e);
         	return e.Data;
       	});
