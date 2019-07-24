@@ -1,15 +1,15 @@
 (params) => {
-  stash.put("runFinished", false);
+  
   let executionId = api.run("aws_athena.start_query_execution", {
       QueryString : params.query,
       ClientRequestToken: makeid(35),
       WorkGroup: "primary",
       ResultConfiguration: {OutputLocation: 's3://prod.events-logs.transposit.com/query-results'}
     })[0]['QueryExecutionId'];
-  
+  return executionId;
 
   let result;
-  return new Promise( resolve => {
+  await new Promise( resolve => {
       setTimeout(() => {
          result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
            console.log(e);
