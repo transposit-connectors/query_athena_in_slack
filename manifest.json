@@ -80,6 +80,9 @@
         }
       }, {
         "ref": "slack.raw"
+      }, {
+        "ref": "aws_athena.raw.aws_basic",
+        "requireConsumerSignin": true
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
