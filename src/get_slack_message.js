@@ -6,7 +6,7 @@
       "type": "section",
       "text": {
           "type": "mrkdwn",
-          "text": "Hello World!"
+          "text": params.text
       }
     }],
     // The text content gets displayed in the notification
