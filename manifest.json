@@ -144,6 +144,10 @@
         "name": "signupSheetId",
         "type": "STRING",
         "default": "1bb4JyDb6qLVT7WxYPgqpdUDZlY-CubaLfNc-E08CVIc"
+      }, {
+        "name": "secondAppSheetId",
+        "type": "STRING",
+        "default": "1HEaJ2KeltTYz33FRTRMYa0iuX88baQCUYJWGlZVaJdk"
       }]
     }
   }
