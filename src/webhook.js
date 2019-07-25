@@ -6,7 +6,7 @@
   console.log(parsed_body);
   let result;
   let queryText = parsed_body.text.replace(/`/g, "'");
-  setImmediate(() => {
+  setTimeout(() => {
     let user = api.user({ type: "slack", workspaceId, userId });
     if (user) {
       let executionId = api.run(
@@ -22,7 +22,7 @@
         post_body: { text: "Please configure your user" }
       });
     }
-  });
+  }, 1000);
   return { status_code: 200 };
 }
 
