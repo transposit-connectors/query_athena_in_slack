@@ -139,7 +139,12 @@
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
-      "userSettingsDisplay": "GENERATED"
+      "userSettingsDisplay": "GENERATED",
+      "appSettings": [{
+        "name": "signupSheetId",
+        "type": "STRING",
+        "default": "1bb4JyDb6qLVT7WxYPgqpdUDZlY-CubaLfNc-E08CVIc"
+      }]
     }
   }
 }
