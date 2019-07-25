@@ -32,7 +32,7 @@ async params => {
       console.log(e);
     }
   }
-};
+}
 
 /*
  * For sample code and reference material, visit
