@@ -11,7 +11,7 @@
     if (user) {
       let executionId = api.run(
         "this.query_athena",
-        { query: parsed_body.text, response_url: response_url },
+        { query: queryText, response_url: response_url },
         { asUser: user.id }
       )[0];
 
