@@ -1,4 +1,5 @@
 (params) => {
+  console.log(stash.get(params.response_url));
 	while(stash.get(params.response_url) != null) {
       let executionId = stash.get(params.response_url);
       let result;
