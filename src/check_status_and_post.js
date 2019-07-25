@@ -1,4 +1,4 @@
-async (params) => {
+ (params) => {
   console.log(stash.get(params.response_url));
   while (stash.get(params.response_url) != null) {
     let executionId = stash.get(params.response_url);
@@ -6,7 +6,7 @@ async (params) => {
     let result;
     // try to ping athena
     try {
-      await new Promise(resolve => {
+       new Promise(resolve => {
         setTimeout(() => {
           resolve();
         }, 5000)
