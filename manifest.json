@@ -62,6 +62,15 @@
           }],
           "js": "untitled.js"
         }
+      }, {
+        "id": "check_status_and_post",
+        "function": {
+          "parameters": [{
+            "name": "response_url",
+            "type": "STRING"
+          }],
+          "js": "check_status_and_post.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",

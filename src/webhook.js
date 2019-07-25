@@ -14,38 +14,8 @@
         { query: queryText, response_url: response_url },
         { asUser: user.id }
       )[0];
-
-      setTimeout(() => {
-        try {
-        result = api
-          .run(
-            "aws_athena.get_query_results",
-            { QueryExecutionId: executionId },
-            { asUser: user.id }
-          )
-          .map(e => {
-            return e.Data;
-          });
-        } catch(e) {
-         api.run("slack_webhook.post_to_response_url", {
-        	response_url: response_url,
-        	post_body: { text: e.toString() }
-      	 });
-        }
-		const cols = result[0];
-        result = result.slice(1, result.length);
-        let formattedData = result.map(e => {
-          return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
-        });
-
-        let message = api.run("this.get_slack_message", {
-          text: JSON.stringify(formattedData)
-        });
-        api.run("slack_webhook.post_to_response_url", {
-          response_url: response_url,
-          post_body: message[0]
-        });
-      }, 10000);
+      stash.put(response_url, executionId);
+	  api.run('this.check_status_and_post', {response_url: response_url});
     } else {
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
