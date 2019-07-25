@@ -22,7 +22,7 @@
         post_body: { text: "Please configure your user" }
       });
     }
-  }, 1000);
+  }, 5000);
   return { status_code: 200 };
 }
 
