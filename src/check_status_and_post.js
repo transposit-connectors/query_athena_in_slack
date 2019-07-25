@@ -14,7 +14,11 @@
               return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
           });
           stash.put(params.response_url, null);
-          return
+          
+          return api.run("slack_webhook.post_to_response_url", {
+            response_url: params.response_url,
+            post_body: { text:  JSON.stringify(formattedMsg) }
+          });
         }, 5000)
       } catch (e) {
         console.log(e);
