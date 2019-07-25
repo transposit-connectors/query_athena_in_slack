@@ -23,7 +23,7 @@
       });
     }
   });
-  return { status_code: 200, text: "hello" };
+  return { status_code: 200, body: { "greeting": "Hello World" } };
 }
 
 /*
