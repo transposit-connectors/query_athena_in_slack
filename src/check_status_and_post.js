@@ -8,9 +8,14 @@
           result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
         		return e.Data;
       		});
-          
+          const cols = result[0];
+  		  result = result.slice(1, result.length);
+          let formattedMsg = result.map(e => {
+              return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
+          });
+          stash.put(params.response_url, null);
+          return
         }, 5000)
-        
       } catch (e) {
         console.log(e);
       }

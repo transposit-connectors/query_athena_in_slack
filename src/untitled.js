@@ -1,7 +1,5 @@
 (params) => {
-  return api.run("aws_athena.get_query_results", {QueryExecutionId: params.id}).map(e => {
-        	return e.Data;
-      	 });
+ return stash.get('hello') == null;
 }
 
 /*
