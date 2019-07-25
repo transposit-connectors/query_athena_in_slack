@@ -1,11 +1,16 @@
 (params) => {
-	while(stash.get(params.response_url) != "done") {
+	while(stash.get(params.response_url) != null) {
       let executionId = stash.get(params.response_url);
+      let result;
       // try to ping athena 
       try {
-        result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
+        setTimeout(() => {
+          result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
         		return e.Data;
       		});
+          
+        }, 5000)
+        
       } catch (e) {
         console.log(e);
       }
