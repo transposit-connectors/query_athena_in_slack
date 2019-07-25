@@ -6,7 +6,7 @@
     let result;
     // try to ping athena
     try {
-       await new Promise(resolve => {
+       await new Promise((resolve) => {
         setTimeout(() => {
           resolve();
         }, 5000)
