@@ -8,7 +8,8 @@
 		"text": {
 			"type": "mrkdwn",
 			"text": "Hello from Transposit Growth Bot! Here are some stats from yesterday. You could see the dashboard live here https://app.sigmacomputing.com/transposit/db/Growth-Dashboard-V2-6G9paXJwPT66FqfibFh9MT  Ask @yoko for permissions if you can't see it!"
-		},
+		}
+    },
       {
 		"type": "divider"
 	}

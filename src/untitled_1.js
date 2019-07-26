@@ -54,7 +54,6 @@ params => {
 
 
   function formatData(data) {
-	console.log(data)
     const cols = data[0];
     data = data.slice(1, data.length);
     let formatted = data.map(e => {
