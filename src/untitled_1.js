@@ -17,28 +17,41 @@ params => {
   })[0].values);
   let summary = {'Second App Creation' : secondAppData, 'Active Apps' : activeAppData, 'Active Users': activeUsersData, 'Signups': signupData};
   
-  return summary
-  
-  const cols = data[0];
-  signupData = data.slice(1, data.length);
-  formattedData = signupData.map(e => {
-    return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
-  });
+  let sections = [];
+  let keys = _.keys(summary)
 
-  let text = "";
-  formattedData.forEach(d => {
-    if (d.Dte === lookupTime) {
-      text =
-        text +
-        "on " +
-        yesterday.format("YYYY-MM-DD") +
-        ", Number of Signup = " +
-        d.Count +
-        ", rolling sum (28 days) = " +
-        d["sum of past 28 days"];
+  _.each(keys, (k) => {
+    let title = k;
+    let dateString = summary[k].Date;
+    let sumString = summary[k].sum;
+    let rollingAvgString = summary[k]['rolling_avg'];
+    let daysSum = summary[k]['28_day_sum'];
+    console.log(daysSum)
+    
+    let section	= {
+		"type": "section",
+		"text": {
+			"type": "mrkdwn",
+			"text": `*${title}*\n *Date*: ${dateString} \n *Sum*: ${sumString}`
+		}
+	};
+    
+    if (daysSum != null) {
+      section.text.text = section.text.text + `\n *28-day Sum*: ${daysSum}` ;
     }
-  });
-  return text;
+    
+    if (rollingAvgString != null) {
+      section.text.text = section.text.text + `\n *28-day Rolling Average*: ${rollingAvgString} ` 
+    }
+    sections.push(section);
+    sections.push(	{
+		"type": "divider"
+	});
+  })
+  
+  
+  return api.run('this.post_to_slack', {sections: sections});
+
 
   function formatData(data) {
 	console.log(data)
