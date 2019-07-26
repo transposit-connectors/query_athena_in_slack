@@ -26,7 +26,6 @@ params => {
     let sumString = summary[k].sum;
     let rollingAvgString = summary[k]['rolling_avg'];
     let daysSum = summary[k]['28_day_sum'];
-    console.log(daysSum)
     
     let section	= {
 		"type": "section",
