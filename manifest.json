@@ -57,15 +57,6 @@
           "js": "query_athena.js"
         }
       }, {
-        "id": "untitled",
-        "function": {
-          "parameters": [{
-            "name": "id",
-            "type": "STRING"
-          }],
-          "js": "untitled.js"
-        }
-      }, {
         "id": "check_status_and_post",
         "function": {
           "parameters": [{
@@ -73,18 +64,6 @@
             "type": "STRING"
           }],
           "js": "check_status_and_post.js"
-        }
-      }, {
-        "id": "webhook_1",
-        "function": {
-          "parameters": [{
-            "name": "http_event",
-            "default": {
-              "text": "{\"http_method\": \"GET\", \"query_parameters\": {}, \"headers\": {}, \"body\": \"\"}"
-            },
-            "type": "OBJECT"
-          }],
-          "js": "webhook_1.js"
         }
       }, {
         "id": "get_sheet_values",
