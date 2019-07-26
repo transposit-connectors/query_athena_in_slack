@@ -16,7 +16,7 @@ params => {
     sheetId: env.get("activeUserSheetId")
   })[0].values);
 
-  return signupData
+  return secondAppData
   
   const cols = data[0];
   signupData = data.slice(1, data.length);

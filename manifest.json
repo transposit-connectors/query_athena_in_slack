@@ -93,7 +93,7 @@
             "name": "sheetId",
             "type": "STRING"
           }],
-          "tql": "SELECT * FROM google_sheets.get_sheet_values\n  WHERE range='A1:C3'\n  AND spreadsheetId=@sheetId\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+          "tql": "SELECT * FROM google_sheets.get_sheet_values\n  WHERE range='A1:D3'\n  AND spreadsheetId=@sheetId\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }, {
         "id": "get_metrics_data_and_post",
