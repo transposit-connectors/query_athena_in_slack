@@ -9,17 +9,6 @@
 
   return executionId;
   let result;
-  
-//     await new Promise( resolve => {
-//         setTimeout(() => {
-//          	result = api.run("aws_athena.get_query_results", { QueryExecutionId: executionId }).map(e => {
-//         		return e.Data;
-//       		});
-//           resolve();
-//       }, 15000);
-//     })
-
-//   const cols = result[0];
   result = result.slice(1, result.length);
   let formattedData = result.map(e => {
       return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
