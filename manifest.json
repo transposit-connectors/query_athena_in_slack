@@ -152,6 +152,10 @@
         "name": "activeAppSheetId",
         "type": "STRING",
         "default": "1kd7JDdqq0mvHZ09TKVhzqfkCSETa069un_Ep4FlD3Jw"
+      }, {
+        "name": "activeUserSheetId",
+        "type": "STRING",
+        "default": "1_45D_9cybbC7w_LFtr6udzODRQVeg6c-Zw7C9Si4mB4"
       }]
     }
   }
