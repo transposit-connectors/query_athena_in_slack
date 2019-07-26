@@ -142,7 +142,7 @@
       }, {
         "name": "secondAppSheetId",
         "type": "STRING",
-        "default": "1VFounIbuOOf961PF223FihLAWhS1JAnYQmLZ29b6etI"
+        "default": "1VFounIbuOOf961PF223FihLAWhS1JAnYQmLZ29b6et"
       }, {
         "name": "activeAppSheetId",
         "type": "STRING",
