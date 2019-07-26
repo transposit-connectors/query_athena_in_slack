@@ -1,8 +1,8 @@
 params => {
-  const moment = require("moment.js");
+  const moment = require("moment-timezone-with-data.js");
   const _ = require("underscore.js");
   const yesterday = moment().subtract("1", "day");
-  const lookupTime = yesterday.format("YYYY-MM-DD") + " 00:00:00";
+  const lookupTime = yesterday.tz('America/Los_Angeles').format("YYYY-MM-DD") + " 00:00:00";
   let signupData = formatData(api.run("this.get_sheet_values", {
     sheetId: env.get("signupSheetId")
   })[0].values);
@@ -15,8 +15,9 @@ params => {
   let activeUsersData = formatData(api.run("this.get_sheet_values", {
     sheetId: env.get("activeUserSheetId")
   })[0].values);
-
-  return activeUsersData;
+  let summary = {'Second App Creation' : secondAppData, 'Active Apps' : activeAppData, 'Active Users': activeUsersData, 'Signups': signupData};
+  
+  return summary
   
   const cols = data[0];
   signupData = data.slice(1, data.length);
@@ -40,6 +41,7 @@ params => {
   return text;
 
   function formatData(data) {
+	console.log(data)
     const cols = data[0];
     data = data.slice(1, data.length);
     let formatted = data.map(e => {
@@ -47,7 +49,7 @@ params => {
     });
 
     for (let i =0; i<formatted.length; i++) {
-      if (formatted[i].Dte === lookupTime) {
+      if (formatted[i].Date === lookupTime) {
         return formatted[i]
       }
     }

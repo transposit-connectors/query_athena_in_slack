@@ -100,6 +100,15 @@
         "function": {
           "js": "untitled_1.js"
         }
+      }, {
+        "id": "post_to_slack",
+        "function": {
+          "parameters": [{
+            "name": "sections",
+            "type": "ARRAY"
+          }],
+          "js": "post_to_slack.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
