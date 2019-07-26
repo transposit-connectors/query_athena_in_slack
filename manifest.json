@@ -143,7 +143,7 @@
       "appSettings": [{
         "name": "signupSheetId",
         "type": "STRING",
-        "default": "1bb4JyDb6qLVT7WxYPgqpdUDZlY-CubaLfNc-E08CVIc"
+        "default": "1NMbjP6dPM4Db_CtL3Onxv68cS9_Y34QwLzxBsb6PHxs"
       }, {
         "name": "secondAppSheetId",
         "type": "STRING",
