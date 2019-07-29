@@ -20,6 +20,7 @@ params => {
   let sections = [];
   let keys = _.keys(summary)
 
+
   _.each(keys, (k) => {
     let title = k;
     let dateString = summary[k].Date;
@@ -47,7 +48,7 @@ params => {
 		"type": "divider"
 	});
   })
-  
+
   
   return api.run('this.post_to_slack', {sections: sections});
 
