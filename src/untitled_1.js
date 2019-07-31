@@ -23,7 +23,7 @@ params => {
 
   _.each(keys, (k) => {
     let title = k;
-    let dateString = summary[k].Date;
+    let dateString = summary[k].Date.split(" ")[0];
     let sumString = summary[k].sum;
     let rollingAvgString = summary[k]['rolling_avg'];
     let daysSum = summary[k]['28_day_sum'];
@@ -49,7 +49,7 @@ params => {
 	});
   })
 
-  
+
   return api.run('this.post_to_slack', {sections: sections});
 
 
