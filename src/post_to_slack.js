@@ -1,5 +1,5 @@
 (params) => {
-  let postText = "test";
+  let postText = "Growth Updates";
   // post to slack
   let blockToPost = [
 
