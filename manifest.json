@@ -120,6 +120,9 @@
         "id": "delete_all_tasks",
         "function": {
           "js": "delete_all_tasks.js"
+        },
+        "access": {
+          "requireApiKey": true
         }
       }],
       "dataConnections": [{
