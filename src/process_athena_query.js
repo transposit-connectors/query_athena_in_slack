@@ -1,6 +1,6 @@
 (params) => {
  // let taskUUID = task.create("this.check_status", {stashId: params.stashId}).runEvery(5, "SECONDS");
-  task.delete(task.listTasks()[0].uuid);
+  return task.listTasks()
   //stash.put(params.stashId+"task", taskUUID);
 }
 
