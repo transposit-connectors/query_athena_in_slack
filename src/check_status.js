@@ -1,5 +1,5 @@
 (params) => {
-return task.listTasks();
+return task.delete(task.listTasks()[0].uuid);
   let executionId = stash.get(params.stashId);
   if (executionId) {
     try {
