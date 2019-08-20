@@ -91,6 +91,11 @@
           }],
           "js": "post_to_slack.js"
         }
+      }, {
+        "id": "process_athena_query",
+        "function": {
+          "js": "process_athena_query.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",

@@ -9,13 +9,13 @@
   setImmediate(() => {
     let user = api.user({ type: "slack", workspaceId, userId });
     if (user) {
-	  // let executionId = api.run(
-	  // "this.query_athena",
-	  // { query: queryText, response_url: response_url },
-	  // { asUser: user.id }
-	  // )[0];
-	  // stash.put(response_url, executionId);
-	  // api.run('this.check_status_and_post', {response_url: response_url}, { asUser: user.id });
+	  let executionId = api.run(
+	  "this.query_athena",
+	  { query: queryText, response_url: response_url },
+	  { asUser: user.id }
+	  )[0];
+	  stash.put(response_url, executionId);
+	  //api.run('this.check_status_and_post', {response_url: response_url}, { asUser: user.id });
     } else {
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
