@@ -1,4 +1,5 @@
 (params) => {
+
   let executionId = stash.get(params.stashId);
   if (executionId) {
     try {
