@@ -116,6 +116,11 @@
         "function": {
           "js": "untitled.js"
         }
+      }, {
+        "id": "delete_all_tasks",
+        "function": {
+          "js": "delete_all_tasks.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
