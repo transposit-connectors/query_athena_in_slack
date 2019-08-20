@@ -1,5 +1,5 @@
 (params) => {
-
+return task.listTasks();
   let executionId = stash.get(params.stashId);
   if (executionId) {
     try {
