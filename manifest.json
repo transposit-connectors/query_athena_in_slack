@@ -96,6 +96,16 @@
         "function": {
           "js": "process_athena_query.js"
         }
+      }, {
+        "id": "check_status",
+        "function": {
+          "parameters": [{
+            "name": "stashId",
+            "type": "STRING",
+            "required": true
+          }],
+          "js": "check_status.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
