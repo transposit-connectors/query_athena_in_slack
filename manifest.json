@@ -94,6 +94,11 @@
       }, {
         "id": "process_athena_query",
         "function": {
+          "parameters": [{
+            "name": "stashId",
+            "type": "STRING",
+            "required": true
+          }],
           "js": "process_athena_query.js"
         }
       }, {
