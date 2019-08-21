@@ -1,5 +1,5 @@
 (params) => {
-return stash.listKeys();
+  
   let keys = stash.listKeys();
   console.log(keys);
   keys.forEach((k) => {

@@ -27,7 +27,7 @@
         
    return api.run("slack_webhook.post_to_response_url", {
       response_url: params.stashId,
-      post_body: { text: JSON.stringify(formattedMsg) }
+      post_body: { text: JSON.stringify(formattedMsg, null, 2) }
     });
   }
 
