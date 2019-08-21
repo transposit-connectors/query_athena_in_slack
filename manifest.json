@@ -152,8 +152,7 @@
       }, {
         "ref": "slack.raw"
       }, {
-        "ref": "aws_athena.raw.aws_basic",
-        "requireConsumerSignin": true
+        "ref": "aws_athena.raw.aws_basic"
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
