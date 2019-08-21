@@ -7,7 +7,7 @@
   
   console.log("timesTried = " + timesTried);
   if (timesTried > 23) {
-  	// we have tried 10 times! we are done.
+  	// we have tried many times! we are done.
     cleanup();
     return api.run("slack_webhook.post_to_response_url", {
       response_url: params.stashId,
@@ -18,6 +18,7 @@
   if (executionId) {
     try {
       stash.put(counterKey, timesTried + 1);
+      respond("Still working...");
       let result = api
         .run("aws_athena.get_query_results", { QueryExecutionId: executionId })
         .map(e => {
