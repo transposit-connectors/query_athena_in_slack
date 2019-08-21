@@ -1,7 +1,6 @@
 (params) => {
 
   let executionId = stash.get(params.stashId);
-  let formattedMsg;
   if (executionId) {
     try {
       let result = api
@@ -12,13 +11,14 @@
 		
       const cols = result[0];
       result = result.slice(1, result.length);
-      formattedMsg = result.map(e => {
+      let formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
 		
       // delete task if data came back
-      //let key = params.stashId + "task";
-      let taskUUID = task.listTasks()[0].uuid;
+      stash.put(params.stashId, null);
+      let key = params.stashId + "task";
+      let taskUUID = stash.get(key);
       task.delete(taskUUID);
     } catch (error) {
       return "Run has not finished/Run contains bad query";
@@ -26,7 +26,7 @@
         
    return api.run("slack_webhook.post_to_response_url", {
       response_url: params.stashId,
-      post_body: { text: JSON.stringify(formattedMsg, null, 2) }
+      post_body: { text: JSON.stringify(formattedMsg) }
     });
   }
 
