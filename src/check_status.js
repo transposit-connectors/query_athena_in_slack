@@ -16,6 +16,7 @@
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
 		
+      
       // delete task if data came back
       stash.put(params.stashId, null);
       let key = params.stashId + "task";
