@@ -52,7 +52,7 @@
       stash.put(params.stashId, null);
       let taskKey = "TASK-" + params.stashId;
       let counterKey = "COUNTER-" + params.stashId;
-      let taskUUID = stash.get(key);
+      let taskUUID = stash.get(taskKey);
       task.delete(taskUUID);
       stash.put(taskKey, null);
       stash.put(counterKey, null);
