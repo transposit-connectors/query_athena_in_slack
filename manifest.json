@@ -112,11 +112,6 @@
           "js": "check_status.js"
         }
       }, {
-        "id": "untitled",
-        "function": {
-          "js": "untitled.js"
-        }
-      }, {
         "id": "delete_all_tasks",
         "function": {
           "js": "delete_all_tasks.js"
