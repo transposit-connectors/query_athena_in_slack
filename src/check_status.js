@@ -9,7 +9,7 @@
         .map(e => {
           return e.Data;
         });
-		
+	console.log(result);
       const cols = result[0];
       result = result.slice(1, result.length);
       formattedMsg = result.map(e => {
