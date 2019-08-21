@@ -8,6 +8,7 @@
   let queryText = parsed_body.text.replace(/‘/g, "'");
   queryText = queryText.replace(/’/g, "'");
   console.log(queryText)
+  
   setImmediate(() => {
     let executionId = api.run(
     "this.query_athena",
