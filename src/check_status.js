@@ -17,6 +17,7 @@
   
   if (executionId) {
     try {
+      stash.put(counterKey, timesTried + 1);
       let result = api
         .run("aws_athena.get_query_results", { QueryExecutionId: executionId })
         .map(e => {
@@ -29,7 +30,7 @@
       formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
-	  stash.put(counterKey, timesTried + 1);
+	  
       
       // delete task if data came back
       cleanup();
