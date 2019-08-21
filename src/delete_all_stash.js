@@ -1,10 +1,7 @@
 (params) => {
   
-  let keys = stash.listKeys();
-  console.log(keys);
-  keys.forEach((k) => {
-    stash.put(k,null);
-  });
+  stash.put('a', 1);
+  stash.put('a', 3)
 }
 
 /*
