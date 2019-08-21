@@ -10,21 +10,20 @@
   console.log(queryText)
   setImmediate(() => {
     
-    let user = api.user({ type: "slack", workspaceId, userId });
-    if (user) {
+    // let user = api.user({ type: "slack", workspaceId, userId });
+    // if (user) {
 	  let executionId = api.run(
 	  "this.query_athena",
-	  { query: queryText, response_url: response_url },
-	  { asUser: user.id }
+	  { query: queryText, response_url: response_url }
 	  )[0];
 	  stash.put(response_url, executionId);
-	  api.run('this.process_athena_query', {stashId: response_url}, {asUser: user.id});
-    } else {
-      api.run("slack_webhook.post_to_response_url", {
-        response_url: response_url,
-        post_body: { text: "Please configure your user at https://growth-bot-mndvb.staging-transposit.com/settings" }
-      });
-    }
+	  api.run('this.process_athena_query', {stashId: response_url});
+    // } else {
+    //   api.run("slack_webhook.post_to_response_url", {
+    //     response_url: response_url,
+    //     post_body: { text: "Please configure your user at https://growth-bot-mndvb.staging-transposit.com/settings" }
+    //   });
+    // }
   });
   return { status_code: 200, body: 'Working hard to run your query...`' +queryText+'`'};
 }
