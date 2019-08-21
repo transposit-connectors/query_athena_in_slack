@@ -1,5 +1,5 @@
 (params) => {
- 
+  let runTime = (new Date())
   let taskUUID = task.create("this.check_status", {stashId: params.stashId}).runEvery(5, "SECONDS");
   stash.put(params.stashId+"task", taskUUID);
 }
