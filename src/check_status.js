@@ -2,7 +2,7 @@
 
   let executionId = stash.get(params.stashId);
   let formattedMsg;
-  const tiemsTried = stash.get("COUNTER-" + params.stashId);
+  const timesTried = stash.get("COUNTER-" + params.stashId);
   if (timesTried > 2) {
   	// we have tried 10 times! we are done.
     cleanup();
@@ -26,7 +26,7 @@
       formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
-	  stash.put("COUNTER-" + params.stashId, tiemsTried + 1);
+	  stash.put("COUNTER-" + params.stashId, timesTried + 1);
       
       // delete task if data came back
       cleanup();
