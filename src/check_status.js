@@ -19,13 +19,14 @@
         .map(e => {
           return e.Data;
         });
-	console.log(result);
+	  
+      console.log(result);
       const cols = result[0];
       result = result.slice(1, result.length);
       formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
-		
+	  stash.put("COUNTER-" + params.stashId, timesTried + 1);
       
       // delete task if data came back
       cleanup();
