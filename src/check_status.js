@@ -23,6 +23,7 @@
       let taskUUID = stash.get(key);
       task.delete(taskUUID);
     } catch (error) {
+      console.log(error);
       return "Run has not finished/Run contains bad query";
     }
         
