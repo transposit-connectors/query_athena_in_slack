@@ -6,12 +6,12 @@
   const timesTried = stash.get(counterKey);
   
   console.log("timesTried = " + timesTried);
-  if (timesTried > 10) {
+  if (timesTried > 23) {
   	// we have tried 10 times! we are done.
     cleanup();
     return api.run("slack_webhook.post_to_response_url", {
       response_url: params.stashId,
-      post_body: { text: "Sorry! Your call timed out after 50s."}
+      post_body: { text: "Sorry! Your call timed out after two minutes."}
     });
   }
   

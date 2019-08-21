@@ -49,7 +49,7 @@ params => {
 	});
   })
 
-
+return sections
   return api.run('this.post_to_slack', {sections: sections});
 
 

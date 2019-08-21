@@ -127,6 +127,16 @@
         "access": {
           "requireApiKey": true
         }
+      }, {
+        "id": "get_query_results",
+        "tql": {
+          "parameters": [{
+            "name": "id",
+            "type": "STRING",
+            "required": true
+          }],
+          "tql": "SELECT * FROM aws_athena.get_query_results\n  WHERE QueryExecutionId=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
