@@ -8,7 +8,7 @@
     cleanup();
     return api.run("slack_webhook.post_to_response_url", {
       response_url: params.stashId,
-      post_body: { text: JSON.stringify(formattedMsg, null, 2) }
+      post_body: { text: "Sorry! Your call timed out after 50s."}
     });
   }
   
