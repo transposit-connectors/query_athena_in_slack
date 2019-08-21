@@ -6,6 +6,7 @@
   console.log(parsed_body);
   let result;
   let queryText = parsed_body.text.replace(/`/g, "'");
+  console.log(queryText)
   setImmediate(() => {
     let user = api.user({ type: "slack", workspaceId, userId });
     if (user) {
