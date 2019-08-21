@@ -19,7 +19,7 @@
       
       // delete task if data came back
       stash.put(params.stashId, null);
-      let key = params.stashId + "task";
+      let key = "TASK-" + params.stashId;
       let taskUUID = stash.get(key);
       task.delete(taskUUID);
     } catch (error) {
