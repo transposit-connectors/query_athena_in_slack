@@ -3,6 +3,7 @@
   let executionId = stash.get(params.stashId);
   let formattedMsg;
   const timesTried = stash.get("COUNTER-" + params.stashId);
+  console.log("timesTried = " + timesTried);
   if (timesTried > 2) {
   	// we have tried 10 times! we are done.
     cleanup();
