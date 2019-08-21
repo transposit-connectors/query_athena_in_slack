@@ -18,7 +18,7 @@
 	  { asUser: user.id }
 	  )[0];
 	  stash.put(response_url, executionId);
-	  api.run('this.process_athena_query', {stashId: response_url}, { asUser: user.id });
+	  api.run('this.process_athena_query', {stashId: response_url});
     // } else {
     //   api.run("slack_webhook.post_to_response_url", {
     //     response_url: response_url,
