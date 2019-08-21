@@ -4,7 +4,6 @@
   let formattedMsg;
   const counterKey = "COUNTER-" + params.stashId;
   const timesTried = stash.get(counterKey);
- 
   
   console.log("timesTried = " + timesTried);
   if (timesTried > 2) {
@@ -30,7 +29,7 @@
       formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
-	  stash.put("COUNTER-" + params.stashId, timesTried + 1);
+	  stash.put(counterKey, timesTried + 1);
       
       // delete task if data came back
       cleanup();
