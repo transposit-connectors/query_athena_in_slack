@@ -1,6 +1,7 @@
 (params) => {
 
   let executionId = stash.get(params.stashId);
+  let formattedMsg;
   if (executionId) {
     try {
       let result = api
@@ -11,7 +12,7 @@
 		
       const cols = result[0];
       result = result.slice(1, result.length);
-      let formattedMsg = result.map(e => {
+      formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
 		
