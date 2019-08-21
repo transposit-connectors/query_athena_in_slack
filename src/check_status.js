@@ -6,7 +6,7 @@
   const timesTried = stash.get(counterKey);
   
   console.log("timesTried = " + timesTried);
-  if (timesTried > 2) {
+  if (timesTried > 10) {
   	// we have tried 10 times! we are done.
     cleanup();
     return api.run("slack_webhook.post_to_response_url", {
