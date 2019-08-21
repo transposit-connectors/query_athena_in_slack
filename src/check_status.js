@@ -16,8 +16,8 @@
       });
 		
       // delete task if data came back
-      let key = params.stashId + "task";
-      let taskUUID = stash.get(key);
+      //let key = params.stashId + "task";
+      let taskUUID = task.listTasks()[0].uuid;
       task.delete(taskUUID);
     } catch (error) {
       return "Run has not finished/Run contains bad query";
