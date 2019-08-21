@@ -1,6 +1,8 @@
-(params) =>{
-  r
-  return task.delete('b3cb66c6-100e-43bd-917d-50b5cc28913c')
+(params) => {
+  let keys = stash.listKeys();
+  keys.forEach((k) => {
+    stash.put(k,null);
+  });
 }
 
 /*

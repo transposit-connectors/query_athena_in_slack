@@ -124,6 +124,11 @@
         "access": {
           "requireApiKey": true
         }
+      }, {
+        "id": "delete_all_stash",
+        "function": {
+          "js": "delete_all_stash.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
