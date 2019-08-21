@@ -44,8 +44,11 @@
   
   function cleanup() {
       stash.put(params.stashId, null);
-      let key = "TASK-" + params.stashId;
+      let taskKey = "TASK-" + params.stashId;
+      let counterKey = "COUNTER-" + params.stashId;
       let taskUUID = stash.get(key);
       task.delete(taskUUID);
+      stash.put(taskKey, null);
+      stash.put(counterKey, null);
   }
 }
