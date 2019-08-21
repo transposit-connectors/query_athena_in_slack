@@ -5,6 +5,7 @@
   const tiemsTried = stash.get("COUNTER-" + params.stashId);
   if (timesTried > 10) {
   	// we have tried 10 times! we are done.
+    cleanup();
     return api.run("slack_webhook.post_to_response_url", {
       response_url: params.stashId,
       post_body: { text: JSON.stringify(formattedMsg, null, 2) }
