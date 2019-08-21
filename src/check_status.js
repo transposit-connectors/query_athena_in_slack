@@ -2,6 +2,15 @@
 
   let executionId = stash.get(params.stashId);
   let formattedMsg;
+  const tiemsTried = stash.get("COUNTER-" + params.stashId);
+  if (timesTried > 10) {
+  	// we have tried 10 times! we are done.
+    return api.run("slack_webhook.post_to_response_url", {
+      response_url: params.stashId,
+      post_body: { text: JSON.stringify(formattedMsg, null, 2) }
+    });
+  }
+  
   if (executionId) {
     try {
       let result = api
@@ -18,10 +27,7 @@
 		
       
       // delete task if data came back
-      stash.put(params.stashId, null);
-      let key = "TASK-" + params.stashId;
-      let taskUUID = stash.get(key);
-      task.delete(taskUUID);
+      cleanup();
     } catch (error) {
       console.log(error);
       return "Run has not finished/Run contains bad query";
@@ -34,4 +40,12 @@
   }
 
   throw new Error(`stashId ${params.stashId} does not exist!`);
+  
+  
+  function cleanup() {
+      stash.put(params.stashId, null);
+      let key = "TASK-" + params.stashId;
+      let taskUUID = stash.get(key);
+      task.delete(taskUUID);
+  }
 }
