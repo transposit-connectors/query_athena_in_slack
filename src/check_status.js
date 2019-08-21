@@ -2,8 +2,9 @@
 
   let executionId = stash.get(params.stashId);
   let formattedMsg;
-  const timesTried = stash.get("COUNTER-" + params.stashId);
   const counterKey = "COUNTER-" + params.stashId;
+  const timesTried = stash.get(counterKey);
+ 
   
   console.log("timesTried = " + timesTried);
   if (timesTried > 2) {
