@@ -21,7 +21,7 @@
     } else {
       api.run("slack_webhook.post_to_response_url", {
         response_url: response_url,
-        post_body: { text: "Please configure your user" }
+        post_body: { text: "Please configure your user at https://growth-bot-mndvb.staging-transposit.com/settings" }
       });
     }
   });
