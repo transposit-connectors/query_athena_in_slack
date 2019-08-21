@@ -26,7 +26,7 @@
       formattedMsg = result.map(e => {
         return cols.reduce((obj, k, i) => ({ ...obj, [k]: e[i] }), {});
       });
-	  stash.put("COUNTER-" + params.stashId, timesTried + 1);
+	  stash.put("COUNTER-" + params.stashId, tiemsTried + 1);
       
       // delete task if data came back
       cleanup();
