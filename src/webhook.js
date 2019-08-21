@@ -25,7 +25,7 @@
       });
     }
   });
-  return { status_code: 200, body: 'Working hard to run your query...' };
+  return { status_code: 200, body: 'Working hard to run your query...`' +queryText+'`'};
 }
 
 /*
