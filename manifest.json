@@ -60,15 +60,6 @@
           "js": "query_athena.js"
         }
       }, {
-        "id": "check_status_and_post",
-        "function": {
-          "parameters": [{
-            "name": "response_url",
-            "type": "STRING"
-          }],
-          "js": "check_status_and_post.js"
-        }
-      }, {
         "id": "get_sheet_values",
         "tql": {
           "parameters": [{
@@ -136,6 +127,15 @@
             "required": true
           }],
           "tql": "SELECT * FROM aws_athena.get_query_results\n  WHERE QueryExecutionId=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "z_deprecated_check_status_and_post",
+        "function": {
+          "parameters": [{
+            "name": "response_url",
+            "type": "STRING"
+          }],
+          "js": "check_status_and_post.js"
         }
       }],
       "dataConnections": [{
