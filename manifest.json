@@ -27,7 +27,8 @@
             },
             "type": "OBJECT"
           }],
-          "js": "webhook.js"
+          "js": "webhook.js",
+          "lang": "js"
         },
         "access": {
           "requireApiKey": true,
@@ -40,7 +41,8 @@
             "name": "text",
             "type": "STRING"
           }],
-          "js": "get_slack_message.js"
+          "js": "get_slack_message.js",
+          "lang": "js"
         }
       }, {
         "id": "test_post_message",
@@ -57,7 +59,8 @@
             "name": "response_url",
             "type": "STRING"
           }],
-          "js": "query_athena.js"
+          "js": "query_athena.js",
+          "lang": "js"
         }
       }, {
         "id": "get_sheet_values",
@@ -71,7 +74,8 @@
       }, {
         "id": "get_metrics_data_and_post",
         "function": {
-          "js": "untitled_1.js"
+          "js": "untitled_1.js",
+          "lang": "js"
         }
       }, {
         "id": "post_to_slack",
@@ -80,7 +84,8 @@
             "name": "sections",
             "type": "ARRAY"
           }],
-          "js": "post_to_slack.js"
+          "js": "post_to_slack.js",
+          "lang": "js"
         }
       }, {
         "id": "process_athena_query",
@@ -90,7 +95,8 @@
             "type": "STRING",
             "required": true
           }],
-          "js": "process_athena_query.js"
+          "js": "process_athena_query.js",
+          "lang": "js"
         }
       }, {
         "id": "check_status",
@@ -100,12 +106,14 @@
             "type": "STRING",
             "required": true
           }],
-          "js": "check_status.js"
+          "js": "check_status.js",
+          "lang": "js"
         }
       }, {
         "id": "delete_all_tasks",
         "function": {
-          "js": "delete_all_tasks.js"
+          "js": "delete_all_tasks.js",
+          "lang": "js"
         },
         "access": {
           "requireApiKey": true
@@ -113,7 +121,8 @@
       }, {
         "id": "delete_all_stash",
         "function": {
-          "js": "delete_all_stash.js"
+          "js": "delete_all_stash.js",
+          "lang": "js"
         },
         "access": {
           "requireApiKey": true
@@ -135,7 +144,13 @@
             "name": "response_url",
             "type": "STRING"
           }],
-          "js": "check_status_and_post.js"
+          "js": "check_status_and_post.js",
+          "lang": "js"
+        }
+      }, {
+        "id": "post_chat_message",
+        "tql": {
+          "tql": "SELECT * FROM slack.post_chat_message\n  WHERE $body=(SELECT {\n    'icon_url' : '<string>',\n    'link_names' : <boolean>,\n    'attachments' : '<string>',\n    'icon_emoji' : '<string>',\n    'channel' : '<string>',\n    'parse' : '<string>',\n    'mrkdwn' : <boolean>,\n    'as_user' : <boolean>,\n    'thread_ts' : '<string>',\n    'unfurl_media' : <boolean>,\n    'unfurl_links' : <boolean>,\n    'reply_broadcast' : <boolean>,\n    'text' : '<string>',\n    'username' : '<string>'\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }],
       "dataConnections": [{

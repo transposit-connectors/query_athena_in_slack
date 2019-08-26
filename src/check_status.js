@@ -18,7 +18,9 @@
   if (executionId) {
     try {
       stash.put(counterKey, timesTried + 1);
-      respond("Still working...");
+      if ((timesTried+1)%5 == 0) {
+        respond("Still working...");
+      }
       let result = api
         .run("aws_athena.get_query_results", { QueryExecutionId: executionId })
         .map(e => {
