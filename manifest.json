@@ -2,9 +2,6 @@
   "v2": {
     "transposit": {
       "dependencies": [{
-        "name": "transposit/slack:v2.*.*",
-        "alias": "slack"
-      }, {
         "name": "transposit/slack_webhook:v1.*.*",
         "alias": "slack_webhook"
       }, {
