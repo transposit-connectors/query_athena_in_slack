@@ -45,11 +45,6 @@
           "lang": "js"
         }
       }, {
-        "id": "test_post_message",
-        "tql": {
-          "tql": "-- This SQL operation is useful to test the message you've\n-- constructed for your webhook. If you provide a Slack\n-- auth in \"Auth & user settings\", it will post a message\n-- to your Slackbot channel.\nSELECT * FROM slack.post_chat_message AS A\nJOIN this.get_slack_message AS B\nON A.$body.blocks = B.blocks\nAND A.$body.text = B.text\nWHERE A.$body.channel = (SELECT user_id from slack.test_auth)"
-        }
-      }, {
         "id": "query_athena",
         "function": {
           "parameters": [{
@@ -60,21 +55,6 @@
             "type": "STRING"
           }],
           "js": "query_athena.js",
-          "lang": "js"
-        }
-      }, {
-        "id": "get_sheet_values",
-        "tql": {
-          "parameters": [{
-            "name": "sheetId",
-            "type": "STRING"
-          }],
-          "tql": "SELECT * FROM google_sheets.get_sheet_values\n  WHERE range='A1:D4'\n  AND spreadsheetId=@sheetId\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
-        }
-      }, {
-        "id": "get_metrics_data_and_post",
-        "function": {
-          "js": "untitled_1.js",
           "lang": "js"
         }
       }, {
@@ -110,24 +90,6 @@
           "lang": "js"
         }
       }, {
-        "id": "delete_all_tasks",
-        "function": {
-          "js": "delete_all_tasks.js",
-          "lang": "js"
-        },
-        "access": {
-          "requireApiKey": true
-        }
-      }, {
-        "id": "delete_all_stash",
-        "function": {
-          "js": "delete_all_stash.js",
-          "lang": "js"
-        },
-        "access": {
-          "requireApiKey": true
-        }
-      }, {
         "id": "get_query_results",
         "tql": {
           "parameters": [{
@@ -136,16 +98,6 @@
             "required": true
           }],
           "tql": "SELECT * FROM aws_athena.get_query_results\n  WHERE QueryExecutionId=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
-        }
-      }, {
-        "id": "z_deprecated_check_status_and_post",
-        "function": {
-          "parameters": [{
-            "name": "response_url",
-            "type": "STRING"
-          }],
-          "js": "check_status_and_post.js",
-          "lang": "js"
         }
       }, {
         "id": "post_chat_message",
