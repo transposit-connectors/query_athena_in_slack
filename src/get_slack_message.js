@@ -10,7 +10,7 @@
       }
     }],
     // The text content gets displayed in the notification
-    text: 'A message from Transposit!'
+    text: 'A message from Athena Query Bot!'
   };
 }
 

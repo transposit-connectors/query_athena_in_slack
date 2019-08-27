@@ -58,16 +58,6 @@
           "lang": "js"
         }
       }, {
-        "id": "post_to_slack",
-        "function": {
-          "parameters": [{
-            "name": "sections",
-            "type": "ARRAY"
-          }],
-          "js": "post_to_slack.js",
-          "lang": "js"
-        }
-      }, {
         "id": "process_athena_query",
         "function": {
           "parameters": [{
@@ -98,11 +88,6 @@
             "required": true
           }],
           "tql": "SELECT * FROM aws_athena.get_query_results\n  WHERE QueryExecutionId=@id\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
-        }
-      }, {
-        "id": "post_chat_message",
-        "tql": {
-          "tql": "SELECT * FROM slack.post_chat_message\n  WHERE $body=(SELECT {\n    'icon_url' : '<string>',\n    'link_names' : <boolean>,\n    'attachments' : '<string>',\n    'icon_emoji' : '<string>',\n    'channel' : '<string>',\n    'parse' : '<string>',\n    'mrkdwn' : <boolean>,\n    'as_user' : <boolean>,\n    'thread_ts' : '<string>',\n    'unfurl_media' : <boolean>,\n    'unfurl_links' : <boolean>,\n    'reply_broadcast' : <boolean>,\n    'text' : '<string>',\n    'username' : '<string>'\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }],
       "dataConnections": [{
