@@ -7,7 +7,7 @@
   console.log(params.stashId + "task");
   stash.put("TASK-" + params.stashId, taskUUID);
   stash.put("COUNTER-" + params.stashId, 1);
-};
+}
 
 /*
  * For sample code and reference material, visit
