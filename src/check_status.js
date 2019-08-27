@@ -64,4 +64,4 @@
       post_body: { text: words }
     });
   }
-};
+}
