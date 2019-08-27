@@ -1,5 +1,6 @@
 (params) => {
   let runTime = new Date();
+  // create a dynamic task to check on Athena run status every 5s
   let taskUUID = task
     .create("this.check_status", { stashId: params.stashId })
     .runEvery(5, "SECONDS");
