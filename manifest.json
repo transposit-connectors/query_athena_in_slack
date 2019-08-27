@@ -10,9 +10,6 @@
       }, {
         "name": "transposit/aws_athena:v1.*.*",
         "alias": "aws_athena"
-      }, {
-        "name": "transposit/google_mail:v4.*.*",
-        "alias": "google_mail"
       }],
       "operations": [{
         "id": "webhook",
