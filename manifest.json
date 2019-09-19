@@ -132,6 +132,7 @@
       }, {
         "type": "STRING"
       }]
-    }
+    },
+    "description": "Query Athena from Slack commands"
   }
 }
